@@ -30,7 +30,7 @@ body {
 }
 
 /* ==========================================================
-   HEADER & BARRA DE NAVEGAÇÃO (.navbar, .main-menu, .sub-menu)
+   HEADER & NAVEGAÇÃO SUPERIOR
    ========================================================== */
 header {
     width: 100%;
@@ -49,8 +49,8 @@ header {
 .main-menu {
     list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 15px;
 }
 
@@ -71,63 +71,21 @@ header {
 
 .main-menu a:hover {
     background-color: var(--hover-bg);
-    transform: scale(1.03);
+    transform: scale(1.05);
     color: #ffffff;
 }
 
-/* Submenu Dropdown (Tutoriais) */
-.dropdown {
-    position: relative;
-}
-
-.sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--black-transparent);
-    backdrop-filter: blur(8px);
-    list-style: none;
-    min-width: 200px;
-    border-radius: 12px;
-    padding: 10px 0;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
-
-    /* Oculto por padrão com transição */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease-in-out;
-}
-
-.dropdown:hover .sub-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.sub-menu a {
-    padding: 10px 20px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-
-.sub-menu a:hover {
-    background-color: var(--hover-bg);
-    padding-left: 25px; /* Efeito de deslize ao passar o mouse */
-}
-
 /* ==========================================================
-   CONTEÚDO PRINCIPAL (MAIN, SEÇÕES E TABELA)
+   CONTEÚDO PRINCIPAL (MAIN)
    ========================================================== */
 main {
-    max-width: 900px;
+    max-width: 850px;
     margin: 40px auto;
     padding: 0 20px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
 }
 
 main h1 {
@@ -138,74 +96,141 @@ main h1 {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Seção Tutoriais */
-#tutoriais {
-    /* background-color: var(--black-transparent-2);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20); */
-    text-align: center;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-}
-
-/* Tabela Estilizada (Mesmo visual de cartão escuro) */
-table {
+/* Imagem Principal da Página */
+main > img {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: var(--black-transparent-2);
+    max-height: 380px;
+    object-fit: cover;
     border-radius: 16px;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
-    overflow: hidden;
-}
-
-caption {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: var(--text-color);
-    text-align: left;
-    padding-left: 5px;
-}
-
-th, td {
-    padding: 16px 20px;
-    text-align: left;
-}
-
-thead {
-    background-color: var(--black-transparent);
-}
-
-thead th {
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 600;
-    border-bottom: 2px solid rgba(205, 206, 236, 0.1);
-}
-
-tbody tr {
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease-in-out;
 }
 
-tbody tr:hover {
-    background-color: var(--hover-bg);
+main > img:hover {
     transform: scale(1.01);
 }
 
-tbody td {
+/* Seção de Atalhos/Estruturas */
+main section {
+    background-color: var(--black-transparent-2);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
+}
+
+main section p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(205, 206, 236, 0.2);
+    padding-bottom: 6px;
+}
+
+main section ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+main section ul li a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--black-transparent);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 20px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-style: italic;
+    font-size: 0.9rem;
+    transition: all 0.3s ease-in-out;
 }
 
-tfoot {
-    background-color: var(--black-transparent);
+main section ul li a:hover {
+    transform: scale(1.05);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* ==========================================================
+   ELEMENTOS DETAILS / SUMMARY (Acordeões interativos)
+   ========================================================== */
+details {
+    background-color: var(--black-transparent-2);
+    border-radius: 16px;
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
+    padding: 16px 20px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+details:hover {
+    transform: scale(1.01);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+summary {
+    font-size: 1.1rem;
     font-weight: 600;
+    color: var(--text-color);
+    outline: none;
+    list-style-cursor: pointer;
 }
 
-tfoot td {
-    border-top: 2px solid rgba(205, 206, 236, 0.1);
+details p {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: #e0e1f7;
+}
+
+/* ==========================================================
+   RODAPÉ (FOOTER E MAPA)
+   ========================================================== */
+footer {
+    background-color: var(--black-transparent);
+    margin-top: 50px;
+    padding: 30px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.4);
+}
+
+footer nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer nav li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: all 0.3s ease-in-out;
+}
+
+footer nav li a:hover {
     color: #ffffff;
+    padding-left: 6px;
+}
+
+/* Mapa iFrame Estilizado */
+footer iframe {
+    border-radius: 16px !important;
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+footer iframe:hover {
+    transform: scale(1.02);
 }
