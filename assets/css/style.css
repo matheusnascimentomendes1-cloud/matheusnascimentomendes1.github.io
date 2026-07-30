@@ -174,7 +174,7 @@ summary {
     font-weight: 600;
     color: var(--text-color);
     outline: none;
-    list-style-cursor: pointer;
+   
 }
 
 details p {
