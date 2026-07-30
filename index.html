@@ -1,65 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Control Da Silva Junior</title>
+    <title>Smart Control Da Silva</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <ul class="main-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
+    <main class="container">
+     <div class="card" id="info-login">
         <h1>Smart Control</h1>
-        <img src="assets/images/html5.webp" alt="Logo HTML com Plano de Fundo de IDE">
-        <section>
-            <p>Estruturas</p>
-            <ul>
-                <li><a href="#header">Header</a></li>
-                <li><a href="#main">Main</a></li>
-                <li><a href="#section">Section</a></li>
-                <li><a href="#details">Details</a></li>
-                <li><a href="#footer">Footer</a></li>
-            </ul>
-        </section>
-        <details>
-            <summary>Header</summary>
-            <p id="header">Define o cabeçalho principal da página ou de uma seção. Geralmente agrupa a logo do sistema e o menu principal.</p>
-        </details>
-        <details>
-            <summary>Main</summary>
-            <p id="main">Envolve o conteúdo principal e exclusivo de um documento. Só deve existir um elemento <main> por página.</p>
-        </details>
-        <details>
-            <summary>Section</summary>
-            <p id="section">Agrupa conteúdos que fazem parte de um mesmo tema ou assunto dentro da página.</p>
-        </details>
-        <details>
-            <summary>Details</summary>
-            <p id="details">É usada para criar um widget interativo que o usuário pode abrir e fechar. Por padrão, o widget está fechado. Quando aberto, ele se expande e exibe o conteúdo em seu interior.</p>
-        </details>
-        <details>
-            <summary>Footer</summary>
-            <p id="footer">Define o rodapé da página ou da seção, muito usado para direitos autorais, links secundários e contatos.</p>
-        </details>
-    </main>
+          <h2>Página de Cadastro</h2>
+     </header>
+          <main>
+            <img src="assets/images/unnamed.jpg" alt="logo" style="border-radius: 50%; width: 20vw;">
+     </div> 
+     <div class="card">
+       <form action="dashboard.html" method="get">
+        <label for ="nome_completo">Nome Completo:</label>
+        <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
 
-    <footer>
-        <nav>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#termos-e-condicoes">Termos e Condições</a></li>
-            <li><a href="#politica-de-privacidade">Politica de Privacidade</a></li>
-            <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
-        </nav>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83846.61847549776!2d-43.348145962180276!3d-21.75966077304398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x989c917a68ac2b%3A0x6002ab99115a4764!2sMuseu%20Mariano%20Proc%C3%B3pio!5e0!3m2!1spt-BR!2sbr!4v1784832536001!5m2!1spt-BR!2sbr" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-    </footer>
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..."  minlength="11" maxlength="11" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" minlength="8" required>
+
+        <input type="checkbox" name="termos" id="termos">
+        <label for="termos">Aceite os Termos do site</label>
+
+        <input type="checkbox" name="condicoes" id="condicoes">
+        <label for="condicoes" >Aceite as Condições do site</label>
+
+        <button type="submit">Entrar /Ir para o Dashboard</button>
+    </main>
+      
+        <footer></footer>
+    </form>   
+<a href="Login.html">Faça Login</a>
+    
 </body>
 </html>
+         
