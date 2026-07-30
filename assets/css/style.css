@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -7,31 +5,26 @@
 }
 
 :root {
-    --bg-color: #020024;
-    --gradient-60-color: #1e1e6b;
-    --gradient-100-color: #00004a;
-    --text-color: #CDCEEC;
+    --bg-color: #000000;
+    --gradient-60-color: #fad817;
+    --gradient-100-color: #b6a937;
+    --text-color: #ffffff;
     --black-transparent: rgba(0, 0, 0, 0.8);
     --black-transparent-2: rgba(0, 0, 0, 0.2);
-    --hover-bg: rgba(205, 206, 236, 0.15);
-}
+} 
 
 body {
     background: var(--bg-color);
-    background: linear-gradient(45deg, var(--bg-color) 0%, var(--gradient-60-color) 60%, var(--gradient-100-color) 100%);
+    background: linear-gradient(45deg, var(--bg-color) 0%, var(--gradient-60-color)60%, var(--gradient-100-color) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--text-color);
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "sans-serif";
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    min-height: 100vh;
+    min-height: 100vh; 
 }
-
-/* ==========================================================
-   HEADER & NAVEGAÇÃO SUPERIOR
-   ========================================================== */
 header {
     width: 100%;
     background-color: var(--black-transparent);
@@ -46,191 +39,89 @@ header {
     padding: 8px 20px;
 }
 
-.main-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+.container{
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 0,5fr 1fr;
 }
 
-.main-menu > li {
-    position: relative;
+.card{
+    margin: auto;
 }
 
-.main-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
-    font-size: 0.95rem;
-    transition: all 0.3s ease-in-out;
-    border-radius: 8px;
-}
-
-.main-menu a:hover {
-    background-color: var(--hover-bg);
-    transform: scale(1.05);
-    color: #ffffff;
-}
-
-/* ==========================================================
-   CONTEÚDO PRINCIPAL (MAIN)
-   ========================================================== */
-main {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 0 20px;
+#info-login.html {
+    background-color: var(--text-color);
+    color: var(--bg-color);
     width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+#info-login.html * {
+    margin: 16px 0;
+}
+
+#form-login.html{
+    margin: 16px 0;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-}
-
-main h1 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Imagem Principal da Página */
-main > img {
-    width: 100%;
-    max-height: 380px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease-in-out;
-}
-
-main > img:hover {
-    transform: scale(1.01);
-}
-
-/* Seção de Atalhos/Estruturas */
-main section {
+    justify-content: center;
     background-color: var(--black-transparent-2);
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);;
 }
 
-main section p {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(205, 206, 236, 0.2);
-    padding-bottom: 6px;
+#form-login.html label, #form-login p{
+    margin: 10px 0 5px;
 }
 
-main section ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-main section ul li a {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: var(--black-transparent);
+#form-login.html input[type="submit"], #form-login input[type="text"], #form-login input[type="email"], #form-login input[type="password"], #form-login select {
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
+    min-width: 200px;
+    border: none;
+    padding: 10px;
     color: var(--text-color);
-    text-decoration: none;
-    border-radius: 20px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'sans-serif';
     font-weight: 400;
     font-style: italic;
-    font-size: 0.9rem;
-    transition: all 0.3s ease-in-out;
+    font-optical-sizing: auto;
 }
 
-main section ul li a:hover {
-    transform: scale(1.05);
+#form-login.html input[type="submit"]{
+    width: 100px;
+    border-radius: 20px;
+    align-self: center;
     background-color: var(--text-color);
     color: var(--bg-color);
-}
-
-/* ==========================================================
-   ELEMENTOS DETAILS / SUMMARY (Acordeões interativos)
-   ========================================================== */
-details {
-    background-color: var(--black-transparent-2);
-    border-radius: 16px;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
-    padding: 16px 20px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-
-details:hover {
-    transform: scale(1.01);
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-summary {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-color);
-    outline: none;
-   
-}
-
-details p {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.5;
-    color: #e0e1f7;
-}
-
-/* ==========================================================
-   RODAPÉ (FOOTER E MAPA)
-   ========================================================== */
-footer {
-    background-color: var(--black-transparent);
-    margin-top: 50px;
-    padding: 30px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.4);
-}
-
-footer nav {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-footer nav li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 0.95rem;
     transition: all 0.3s ease-in-out;
 }
 
-footer nav li a:hover {
-    color: #ffffff;
-    padding-left: 6px;
-}
-
-/* Mapa iFrame Estilizado */
-footer iframe {
-    border-radius: 16px !important;
-    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.5);
+input, select {
     transition: all 0.3s ease-in-out;
 }
 
-footer iframe:hover {
+input:hover, select:hover {
     transform: scale(1.02);
+}
+
+#form-login.html input[type="submit"]:hover{
+    transform: scale(1.05);
+}
+
+.form-group {
+    display: flex;
+    gap: 16px;
+    border-radius: 16px;
+    border: none;
+    padding: 10px;
+    color: var(--text-color)
+}
+
+#termos-e-condicoes {
+    align-self: center;
+    margin: 20px 0;
 }
