@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<<<<<<< HEAD
     <header>
     <main class="container">
      <div class="card" id="info-login">
@@ -46,3 +47,62 @@
 </body>
 </html>
          
+=======
+    <main class="container">
+        <div class="card" id="info-login">
+            <img src="assets/images/logo.webp" alt="Logo Smart Control">
+            <h1>Smart Control</h1>
+            <h2>Login</h2>
+        </div>
+        <div class="card">
+            <form method="post" id="form-login">
+                <label for="nome_completo">Nome Completo:</label>
+                <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu nome completo..." required>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14" title="Ex: 123.456.789-10" inputmode="numeric" pattern="\d{3}.\d{3}.\d{3}-\d{2}" oninput="this.value = this.value.replace(/[^\d.-]/g, '')" placeholder="123.456.789-10" required>
+
+                <label for="escolaridade">Escolaridade:</label>
+                <select name="escolaridade" id="escolaridade" required>
+                    <option value="" selected hidden>Informe a sua escolaridade</option>
+                    <option value="Ensino Fundamental Completo">Ensino Fundamental Completo</option>
+                    <option value="Ensino Médio Completo">Ensino Médio Completo</option>
+                    <option value="Ensino Superior Completo">Ensino Superior Completo</option>
+                </select>
+
+                <p>Informe o seu Sexo:</p>
+                <div class="form-group" id="sexo">
+                    <div class="form-opt">
+                        <input type="radio" name="sexo" id="masculino" value="Masculino" required>
+                        <label for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-opt">
+                        <input type="radio" name="sexo" id="feminino" value="Feminino">
+                        <label for="feminino">Feminino</label>
+                    </div>
+                    <div class="form-opt">
+                        <input type="radio" name="sexo" id="null" value="Prefiro não dizer">
+                        <label for="null">Prefiro não dizer</label>
+                    </div>
+                </div>
+
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="senha_padrao">Senha Padrão:</label>
+                <input type="password" name="senha_padrao" id="senha_padrao" minlength="8" required>
+
+                <div class="form-group" id="termos-e-condicoes">
+                    <div class="form-opt">
+                        <input type="checkbox" name="termos" id="termos" required>
+                        <label for="termos">Aceito os <a href="#termos">Termos</a> e <a href="#condicoes">Condições</a> do site</label>
+                    </div>
+                </div>
+
+                <input type="submit" value="Enviar Dados">
+            </form>
+        <a href="Login.html">Faça Login</a>
+        </div>
+    </main>
+</body>
+>>>>>>> 64f8953fe94511ecf5c5f1fafcf388c2409383d9
