@@ -7,42 +7,60 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-    <main class="container">
-     <div class="card" id="info-login">
-        <h1>Smart Control</h1>
-          <h2>Página de Cadastro</h2>
-     </header>
-          <main>
-            <img src="assets/images/unnamed.jpg" alt="logo" style="border-radius: 50%; width: 20vw;">
-     </div> 
-     <div class="card">
-       <form action="dashboard.html" method="get">
-        <label for ="nome_completo">Nome Completo:</label>
-        <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
+    <div class="container">
+        <div class="info" id="info-login">
+            <h1>Smart Control</h1>
+            <h2>Página de Cadastro</h2>
+            <img src="assets/images/logo-smart.png"l alt="logo" style="border-radius: 50%; max-width: 220px; width: 100%;">
+        </div> 
 
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..."  minlength="11" maxlength="11" required>
+        <div class="card">
+            <form action="dashboard.html" method="get">
+                
+                <div class="form-group">
+                    <label for="nome_completo">Nome Completo:</label>
+                    <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
+                </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..." minlength="11" maxlength="11" required>
+                </div>
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha" minlength="8" required>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required>
+                </div>
 
-        <input type="checkbox" name="termos" id="termos">
-        <label for="termos">Aceite os Termos do site</label>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua senha" required>
+                </div>
 
-        <input type="checkbox" name="condicoes" id="condicoes">
-        <label for="condicoes" >Aceite as Condições do site</label>
+ 
+                <div class="checkbox-group">
+                    <input type="checkbox" name="termos" id="termos" required>
+                    <label for="termos">Aceite os Termos do site</label>
+                </div>
 
-        <button type="submit">Entrar /Ir para o Dashboard</button>
-    </main>
-      
-        <footer></footer>
-    </form>   
-<a href="Login.html">Faça Login</a>
-    
+                <div class="checkbox-group">
+                    <input type="checkbox" name="condicoes" id="condicoes" required>
+                    <label for="condicoes">Aceite as Condições do site</label>
+                </div>
+
+                
+                <button type="submit">Entrar / Ir para o Dashboard</button>
+
+               
+                <div class="form-footer">
+                    <span>Já tem uma conta?</span>
+                    <a href="login.html">Faça Login</a>
+                </div>
+
+            </form>
+        </div>
+
+    </div> 
+
 </body>
 </html>
-         
