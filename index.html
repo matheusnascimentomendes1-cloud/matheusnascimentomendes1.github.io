@@ -16,9 +16,12 @@
             <img src="assets/images/logo-smart.png"l alt="logo" style="border-radius: 50%; max-width: 220px; width: 100%;">
         </div> 
 
-        <form action="dashboard.html" method="get"></form>
+       
 
         <div class="index-form">
+
+            <form action="dashboard.html" method="get">
+            
                 <div class="input-group">
                     <label for="nome_completo">Nome Completo:</label>
                     <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
@@ -36,12 +39,12 @@
 
                 <div class="input-group">
                     <label for="senha">Senha:</label>
-                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua senha" required>
+                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua senha" minlength="12" maxlength="12" required>
                 </div>
 
                 <div class="input-group">
                     <label for="senha">Confirmar Senha:</label>
-                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Corfime Sua senha" required>
+                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Corfime Sua senha" minlength="12" maxlength="12" required>
                 </div>
 
                 <div class="checkbox-group">
