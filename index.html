@@ -7,37 +7,43 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="info" id="info-login">
-            <h1>Smart Control</h1>
-            <h2>Página de Cadastro</h2>
+    <div class="index-container">
+
+        <div class="index-left">
+            <div clas="index-header">
+                <i class="fa-solid fa-lock lock-icon"></i>
+            <h1>Página de Cadastro</h1>
             <img src="assets/images/logo-smart.png"l alt="logo" style="border-radius: 50%; max-width: 220px; width: 100%;">
         </div> 
 
-        <div class="card">
-            <form action="dashboard.html" method="get">
-                
-                <div class="form-group">
+        <form action="dashboard.html" method="get"></form>
+
+        <div class="index-form">
+                <div class="input-group">
                     <label for="nome_completo">Nome Completo:</label>
                     <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
                 </div>
 
-                <div class="form-group">
+                <div class="input-group">
                     <label for="cpf">CPF:</label>
                     <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..." minlength="11" maxlength="11" required>
                 </div>
 
-                <div class="form-group">
+                <div class="input-group">
                     <label for="email">Email:</label>
                     <input type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required>
                 </div>
 
-                <div class="form-group">
+                <div class="input-group">
                     <label for="senha">Senha:</label>
                     <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua senha" required>
                 </div>
 
- 
+                <div class="input-group">
+                    <label for="senha">Confirmar Senha:</label>
+                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Corfime Sua senha" required>
+                </div>
+
                 <div class="checkbox-group">
                     <input type="checkbox" name="termos" id="termos" required>
                     <label for="termos">Aceite os Termos do site</label>
@@ -48,17 +54,16 @@
                     <label for="condicoes">Aceite as Condições do site</label>
                 </div>
 
-                <button type="submit">Entrar / Ir para o Dashboard</button>
+                <button type="submit" class="btn-index">Entrar / Ir para o Dashboard</button>
 
-                <div class="form-footer">
-                    <span>Já tem uma conta?</span>
+                <div class="signup-footer">Já tem uma conta?
                     <a href="Login.html">Faça Login</a>
                 </div>
-
             </form>
         </div>
-
     </div> 
-
+    <div class="index-right">
+        <img src="assets/images/unnamed.png" alt="Ilustração" class="bg-image">
+    </div>     
 </body>
 </html>
