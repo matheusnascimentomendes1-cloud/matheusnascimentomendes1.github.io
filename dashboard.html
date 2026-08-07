@@ -3,50 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartControl - Dashboard</title>
+    <title>SmartControl</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/dashboard.css">
 </head>
 <body>
     <header>
-        <nav class="cabecalho" id="cabecalho">
-            <img src="assets/images/logo-smart.png" alt="logo" width="30" height="30">
-            <h1>SmartControl</h1>
-            <p>Bem Vindo(a) ao SmartControl</p>
-        </nav>
+        <div class="row"><i data-lucide="menu"></i><h1>Smart<span>Control</span></h1></div>
+        <h2>Início</h2>
+        <img src="assets/images/unnamed 2.jpg" alt="Perfil" class="avatar">
+        <a href="login.html" style="margin-trim: auto;">Log Out</a>
     </header>
-    <nav>
-        <ul class="menu-principal">
-            <li>Início</li>
-                    <li>Dispositivos</li>
-                    <li>Conexões</li>
-                    <li>Assistência</li>
-                    <li>Cenas</li> 
 
-                    
-                        <li style="margin-left: auto;">Bem vindo(a), Pior Ainda</li>
-                        <li>Perfil</li>
-                        <li>Configurações</li>
-                        <li><img src="assets/images/unnamed 2.jpg" alt="foto_de_perfil"></li>
-                        <li><a href="index.html">Log Out</a></li>
-                    
-                 </li>
-            </li>
-        </ul>
-    </nav>
-
-    <div class="cardsheet1" id="cardsheet1">
-        <img src="assets/images/WhatsApp_Logo_green.svg.png" alt="icon1"  height="40" width="45" class="images" id="icone_consumo">
-        <div class="cardinfo" id="info_consumo">
-            <h2 class="infos">Consumo de energia Zap Zap </h2>
-            <a href="https://www.youtube.com/watch?v=17Ai_hB_bvM">Análise</a>
-            <p class="infos">900 kW/h</p>
-          </div>
+    <main>
+        <!-- Métricas -->
+        <div class="top-cards">
+            <div class="card row"><div class="icon"><i data-lucide="zap"></i></div><div><p>Consumo</p><strong>12.4 <small>kWh</small></strong><span class="green">↗ 8%</span></div></div>
+            <div class="card row"><div class="icon"><i data-lucide="lightbulb"></i></div><div><p>Ativos</p><strong>18</strong><small>/24</small></div></div>
+            <div class="card row"><div class="icon"><i data-lucide="thermometer"></i></div><div><p>Temp. média</p><strong>24°C</strong></div></div>
+            <div class="card row"><div class="icon"><i data-lucide="shield-check"></i></div><div><p>Segurança</p><strong>Tudo seguro</strong></div></div>
         </div>
 
+        <div class="grid">
+            <!-- Esquerda -->
+            <div>
+                <section class="card">
+                    <h3>Ambientes</h3>
+                    <div class="g3">
+                        <div class="box active">
+                            <div class="between"><i data-lucide="sofa"></i><label class="sw"><input type="checkbox" checked><span></span></label></div>
+                            <strong>Sala de estar</strong><small>4 disp.</small>
+                        </div>
+                        <div class="box">
+                            <div class="between"><i data-lucide="cooking-pot"></i><label class="sw"><input type="checkbox"><span></span></label></div>
+                            <strong>Cozinha</strong><small>3 disp.</small>
+                        </div>
+                        <div class="box">
+                            <div class="between"><i data-lucide="bed"></i><label class="sw"><input type="checkbox"><span></span></label></div>
+                            <strong>Quarto</strong><small>2 disp.</small>
+                        </div>
+                        <div class="box">
+                            <div class="between"><i data-lucide="armchair"></i><label class="sw"><input type="checkbox"><span></span></label></div>
+                            <strong>Escritório</strong><small>2 disp.</small>
+                        </div>
+                        <div class="box">
+                            <div class="between"><i data-lucide="shower-head"></i><label class="sw"><input type="checkbox"><span></span></label></div>
+                            <strong>Banheiro</strong><small>2 disp.</small>
+                        </div>
+                        <div class="box">
+                            <div class="between"><i data-lucide="car"></i><label class="sw"><input type="checkbox"><span></span></label></div>
+                            <strong>Garagem</strong><small>5 disp.</small>
+                        </div>
+                    </div>
+                </section>
 
-    <footer>
-        <iframe src="https://www.google.com/maps/embed?pb=!3m2!1spt-BR!2sbr!4v1785243105699!5m2!1spt-BR!2sbr!6m8!1m7!1sen2wBwARxj7ZVm7XyTD8Qw!2m2!1d40.75346576127939!2d-73.93435103041239!3f37.80465577374413!4f-2.9082872592143474!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>         </li>
-    </footer>
+                <section class="card">
+                    <div class="between"><h3>Favoritos</h3><a href="#">Ver todos</a></div>
+                    <div class="g4">
+                        <div class="box"><i data-lucide="lightbulb" class="y"></i><strong>Luz da sala</strong><small>Sala</small><div class="between"><span>100%</span>⋮</div></div>
+                        <div class="box"><i data-lucide="snowflake" class="y"></i><strong>Ar cond.</strong><small>Sala</small><div class="between"><span>22°C</span>⋮</div></div>
+                        <div class="box"><i data-lucide="tv" class="y"></i><strong>TV</strong><small>Sala</small><div class="between"><span>Off</span>⋮</div></div>
+                        <div class="box"><i data-lucide="blinds" class="y"></i><strong>Cortina</strong><small>Quarto</small><div class="between"><span>80%</span>⋮</div></div>
+                    </div>
+                </section>
+            </div>
 
+            <!-- Direita -->
+            <div>
+                <section class="card">
+                    <div class="between"><h3>Cenas rápidas</h3><a href="#">Ver todas</a></div>
+                    <div class="v-list">
+                        <div class="between box-sm"><div class="row"><i data-lucide="home"></i>Cheguei em casa</div><button class="btn"><i data-lucide="play"></i></button></div>
+                        <div class="between box-sm"><div class="row"><i data-lucide="lock"></i>Saindo de casa</div><button class="btn"><i data-lucide="play"></i></button></div>
+                        <div class="between box-sm"><div class="row"><i data-lucide="clapperboard"></i>Noite de cinema</div><button class="btn"><i data-lucide="play"></i></button></div>
+                        <div class="between box-sm"><div class="row"><i data-lucide="moon"></i>Hora de dormir</div><button class="btn"><i data-lucide="play"></i></button></div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <div class="between"><h3>Consumo de energia</h3><select><option>Hoje</option></select></div>
+                    <strong>12.4 <small>kWh</small></strong>
+                    <svg viewBox="0 0 500 120" class="chart">
+                        <path d="M0,80 Q60,60 100,70 T200,40 T300,10 T400,60 T500,70 L500,120 L0,120 Z" fill="rgba(255,214,0,0.2)"/>
+                        <path d="M0,80 Q60,60 100,70 T200,40 T300,10 T400,60 T500,70" fill="none" stroke="#ffd600" stroke-width="3"/>
+                    </svg>
+                    <div class="between times"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
+
