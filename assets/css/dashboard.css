@@ -218,8 +218,9 @@ header h2 {
 @media (max-width:768px) {
    header { 
          flex-direction: column;
-         gap: 12 px;
+         gap: 20 px;
          text-align: center;
+         
    }
 
    main {
