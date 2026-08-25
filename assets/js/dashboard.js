@@ -1,0 +1,1 @@
+btn.addEvenListener('click', callback);

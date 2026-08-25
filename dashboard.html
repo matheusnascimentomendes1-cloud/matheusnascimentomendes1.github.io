@@ -9,14 +9,18 @@
 </head>
 <body>
     <header>
+        <button id="btnMenuMobile" class="btn btn-primary d-md-none"></Menu></button>
+        <button id="btnTema" class="btn btn-outline-secondary">Dark Mode </button>
         <div class="row"><i data-lucide="menu"></i><h1>Smart<span>Control</span></h1></div>
         <h2>Início</h2>
         <img src="assets/images/unnamed 2.jpg" alt="Perfil" class="avatar">
         <a href="Login.html" style="margin-trim: auto;">Log Out</a>
     </header>
 
+    <aside  id="sidebar" class="sidebar"></aside>
+
     <main>
-    
+     <input type="text" id="campoBusca" placeholder="Buscar..." class="form-control mb-3">
         <div class="top-cards">
             <div class="card row"><div class="icon"><i data-lucide="zap"></i></div><div><p>Consumo</p><strong>12.4 <small>kWh</small></strong><span class="green">↗ 8%</span></div></div>
             <div class="card row"><div class="icon"><i data-lucide="lightbulb"></i></div><div><p>Ativos</p><strong>18</strong><small>/24</small></div></div>
@@ -93,6 +97,7 @@
         </div>
     </main>
     <script>lucide.createIcons();</script>
+    <script src="assets/js/main.js"></script>
 </body>
 <li>Sobre Nós</li>
 <li>Fale Conosco</li>
