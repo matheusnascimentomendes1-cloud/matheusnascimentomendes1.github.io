@@ -11,6 +11,40 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body.dark-theme {
+    background-color: #121212 !important;
+    color: #ffff !important;
+}
+
+body.dark-theme .table {
+    color: #ffff !important;
+}
+
+body.dark-theme .card,
+body.dark-theme .box,
+body.dark-theme header,
+body.dark-theme .box-sm{
+    background-color: #1e1e1e !important;
+    color: #ffff !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme strong,
+body.dark-theme p {
+   color: #ffffff !important;
+}
+
+.sidebar {
+    display: block;
+}
+   
+.sidebar.oculto {
+    display: none;
+}
+
 main {
     padding: 20px;
     max-width: 1300px;
@@ -240,11 +274,3 @@ header h2 {
     align-items: flex-start;
    }
 } 
-
-.sidebar {
-    display: block;
-}
-   
-.sidebar.oculto {
-    display: none;
-}
