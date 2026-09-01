@@ -1,13 +1,23 @@
 $(document).ready(function () {
     
-    var usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-    
-    if (usuarioLogado) {
+    var dadosSalvos = localStorage.getItem("usuarioLogado");
+
+    if(dadosSalvos) {
+        var usuarioLogado = JSON.parse(dadosSalvos);
         $("#perfil-nome").text(usuarioLogado.nome);
         $("#perfil-email").text(usuarioLogado.email);
     } else {
-        window.location.href = "Login.html";
+        windo.location.href = "Login.html";
     }
+});
+    
+    var usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || {
+        nome: "Usuário Teste",
+        email: "usuario@smartcontrol.com"
+    };
+
+    $("#perfil-nome").text(usuarioLogado.nome);
+    $("#perfil-email").text(usuarioLogado.email);
 
     var btnToggleTheme = document.getElementById("btn-toggle-theme");
     var switchTema = document.getElementById("switch-tema");
@@ -71,7 +81,9 @@ $(document).ready(function () {
         });
     }
 
-    $('#ipDispositivo').mask('000.000.000.000', { placeholder: "___.___.___.___" });
+    if ($.fn.mask) {
+        $('#ipDispositivo').mask('000.000.000.000', { placeholder: "___.___.___.___" });
+    }
 
     function validarEmail(email) {
         var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -135,4 +147,5 @@ $(document).ready(function () {
         $alert.removeClass('d-none alert-success alert-danger').addClass('alert-' + tipo).html(mensagem);
         setTimeout(function () { $alert.addClass('d-none'); }, 4000);
     }
-});
+
+

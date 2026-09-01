@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Control Da Silva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="index-container">
 
         <div class="index-left">
-            <div clas="index-header">
+            <div class="index-header">
                 <i class="fa-solid fa-lock lock-icon"></i>
-            <h1>Página de Cadastro</h1>
-            <img src="assets/images/logo-smart.png"l alt="logo" style="border-radius: 50%; max-width: 220px; width: 100%;">
+                <h1>Página de Cadastro</h1>
+                <img src="assets/images/logo-smart.png" alt="logo" style="border-radius: 50%; max-width: 220px; width: 100%;">
+            </div> 
+
+            <div class="index-form">
+                <form action="dashboard.html" method="get">
+                
+                    <div class="input-group">
+                        <label for="nome_completo">Nome Completo:</label>
+                        <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..." minlength="11" maxlength="11" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" name="senha" id="senha" placeholder="Sua senha" minlength="8" maxlength="12" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmar_senha">Confirmar Senha:</label>
+                        <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha" minlength="8" maxlength="12" required>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="termos" id="termos" required>
+                        <label for="termos">Aceite os Termos do site</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="condicoes" id="condicoes" required>
+                        <label for="condicoes">Aceite as Condições do site</label>
+                    </div>
+
+                    <button type="submit" class="btn-index">Entrar / Ir para o Dashboard</button>
+
+                    <div class="signup-footer">Já tem uma conta?
+                        <a href="Login.html">Faça Login</a>
+                    </div>
+                </form>
+            </div>
         </div> 
-        <div class="index-form">
 
-            <form action="dashboard.html" method="get">
-            
-                <div class="input-group">
-                    <label for="nome_completo">Nome Completo:</label>
-                    <input type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu Nome completo..." required>
-                </div>
+        <div class="index-right">
+            <img src="assets/images/unnamed.png" alt="Ilustração" class="bg-image">
+        </div> 
 
-                <div class="input-group">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" id="cpf" placeholder="Digite sem pontuação..." minlength="11" maxlength="11" required>
-                </div>
+    </div>
 
-                <div class="input-group">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" placeholder="seuemail@exemplo.com" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="senha">Senha:</label>
-                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Sua senha" minlength="12" maxlength="12" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="senha">Confirmar Senha:</label>
-                    <input type="password" name="senha" id="senha" minlength="8" placeholder="Corfime Sua senha" minlength="12" maxlength="12" required>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" name="termos" id="termos" required>
-                    <label for="termos">Aceite os Termos do site</label>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" name="condicoes" id="condicoes" required>
-                    <label for="condicoes">Aceite as Condições do site</label>
-                </div>
-
-                <button type="submit" class="btn-index">Entrar / Ir para o Dashboard</button>
-
-                <div class="signup-footer">Já tem uma conta?
-                    <a href="Login.html">Faça Login</a>
-                </div>
-            </form>
-        </div>
-    </div> 
-    <div class="index-right">
-        <img src="assets/images/unnamed.png" alt="Ilustração" class="bg-image">
-    </div> 
-   <script src="assets/js/main.js"></script>        
+    <script src="assets/js/cadastro.js"></script>        
 </body>
 </html>
