@@ -1,4 +1,4 @@
-$('#formdashboard.html').on('submit', function(e) {
+$('#dashboard.html').on('submit', function(e) {
     e.preventDefault();
 
     var emailDigitado = $('#email').val().trim();

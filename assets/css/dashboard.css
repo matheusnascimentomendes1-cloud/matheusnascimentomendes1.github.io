@@ -45,6 +45,11 @@ body {
     color: var(--gold-color) !important;
 }
 
+.text-normal {
+    color: #ffffff;
+}
+
+
 .bg-gold-light {
     background-color: var(--gold-light) !important;
 }

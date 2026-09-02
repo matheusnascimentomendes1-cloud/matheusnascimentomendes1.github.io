@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const senhaInput = document.getElementById("senha");
     const confirmarSenhaInput = document.getElementById("confirmar_senha");
 
-    // Máscara para o campo de CPF (000.000.000-00)
     cpfInput.addEventListener("input", function (e) {
         let value = e.target.value.replace(/\D/g, "");
         if (value.length > 11) value = value.slice(0, 11);
@@ -17,13 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
         e.target.value = value;
     });
 
-    // Função de Validação de E-mail via Regex
+   
     function validarEmail(email) {
         const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regexEmail.test(email);
     }
 
-    // Função de Validação de CPF
+  
     function validarCPF(cpf) {
         cpf = cpf.replace(/[^\d]+/g, "");
         if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return true;
     }
 
-    // Validação no envio do formulário
     form.addEventListener("submit", function (e) {
         const cpfLimpo = cpfInput.value.replace(/\D/g, "");
 
