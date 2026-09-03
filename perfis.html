@@ -3,108 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexões - SmartControl</title>
+    <title>SmartControl - Perfis</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/perfís.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+
+    <style>
+        .bg-dark-header { background-color: #1a1d21; }
+        .text-gold { color: #ffc107; }
+        .texto-white { color: #ffffff; }
+        .cursor-pointer { cursor: pointer; }
+
+        .offcanvas-amarelo {
+            background-color: #f7d038 !important;
+            color: #000 !important;
+        }
+
+        .btn-menu-navegacao {
+            background-color: #3b3b3b;
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-weight: 500;
+            text-align: left;
+            transition: background-color 0.2s;
+            border: none;
+        }
+
+        .btn-menu-navegacao:hover {
+            background-color: #262626;
+            color: #ffffff;
+        }
+
+        .menu-perfil-card {
+            background-color: #3b3b3b;
+            border-radius: 16px;
+            color: #ffffff;
+            padding: 20px;
+            width: 250px;
+            border: none;
+        }
+
+        .menu-perfil-card .btn-perfil-opcao {
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .menu-perfil-card .btn-perfil-opcao i {
+            color: #f7d038;
+            font-size: 1.2rem;
+        }
+
+        .avatar-perfil {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffc107;
+        }
+
+        .card-linha {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .card-linha:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+            background-color: #ffffff;
+        }
+
+        .avatar-linha {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .texto-nome { color: #212529; }
+
+        .modal-fundo {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-fundo.ativo { display: flex; }
+
+        .modal-gerenciar-card {
+            background-color: #43464b;
+            width: 90%;
+            max-width: 380px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .cabecalho-modal-gerenciar {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .topo-perfil-modal {
+            position: relative;
+            height: 100px;
+        }
+
+        .banner-perfil {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .foto-perfil-modal {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00a2ff;
+            position: absolute;
+            bottom: -38px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .corpo-modal-gerenciar {
+            padding: 45px 22px 22px 22px;
+            color: #ffffff;
+        }
+
+        .input-gerenciar {
+            background-color: #d9d9d9;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            color: #000;
+            width: 100%;
+        }
+
+        .btn-visualizar-perfil {
+            background-color: #f7d038;
+            color: #000000;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 12px;
+            padding: 6px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-expulsar {
+            background-color: #ff4d4d;
+            color: #000000;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 16px;
+            width: 48%;
+        }
+
+        .btn-salvar {
+            background-color: #f7d038;
+            color: #000000;
+            font-weight: bold;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 10px;
+            width: 48%;
+        }
+    </style>
 </head>
-<body class="bg-dark">
+<body class="bg-dark d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-dark bg-dark-header px-4 shadow-sm">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             
             <div class="d-flex align-items-center gap-3">
-                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
+                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuNavegacao">
                     <i class="bi bi-list"></i>
                 </button>
-                <a class="navbar-brand d-flex align-items-center gap-2 m-0 cursor-pointer" href="#" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
+                <a class="navbar-brand d-flex align-items-center gap-2 m-0 cursor-pointer">
                     <span class="fw-bold fs-4"><span class="texto-white">Smart</span><span class="text-gold">Control</span></span>
                 </a>
             </div>
 
             <h1 class="h4 m-0 fw-normal d-none d-md-block texto-white">Conexões</h1>
 
-            <div class="d-flex align-items-center gap-3">
-                <button type="button" class="btn btn-outline-warning btn-sm icon-center gap-2" id="btn-toggle-theme">
-                    <i class="bi bi-moon-stars" id="icone-botao-tema"></i>
-                    <span id="texto-botao-tema" class="d-none d-sm-inline">Modo Escuro</span>
-                </button>
+            <div class="dropdown">
+                <div class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="assets/images/unnamed 2.jpg" alt="Foto de Perfil" class="avatar-perfil">
+                </div>
 
-                <div class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
-                    <img src="assets/images/unnamed.zero.jpg" alt="Foto de Perfil" id="foto-perfil-nav" class="avatar-perfil">
+                <div class="dropdown-menu dropdown-menu-end menu-perfil-card shadow mt-2">
+                    <p class="mb-3 fw-normal small">Bem vindo(a),<br><strong class="fs-6">ZeroEsquerda</strong></p>
+                    <a href="perfil.usuario.html" class="btn-perfil-opcao"><i class="bi bi-person"></i> Perfil</a>
+                    <a href="configuracoes.html" class="btn-perfil-opcao"><i class="bi bi-gear"></i> Configurações</a>
+                    <a href="login.html" class="btn-perfil-opcao"><i class="bi bi-box-arrow-right"></i> Log Out</a>
                 </div>
             </div>
 
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuPerfil">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title texto-white"><i class="bi bi-person-circle me-2"></i>Perfil do Usuário</h5>
+    <div class="offcanvas offcanvas-start offcanvas-amarelo" tabindex="-1" id="menuNavegacao" style="width: 280px;">
+        <div class="offcanvas-header bg-dark text-white p-3">
+            <h5 class="offcanvas-title fw-bold fs-4 m-0"><span class="texto-white">Smart</span><span class="text-gold">Control</span></h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         
-        <div class="offcanvas-body d-flex flex-column justify-content-between">
-            <div>
-                <div class="text-center my-3">
-                    <img src="assets/images/unnamed.zero.jpg" alt="Foto de Perfil" class="avatar-perfil-lg mb-2">
-                    <h6 class="fw-bold mb-0 texto-adaptavel" id="perfil-nome">ZeroEsquerda</h6>
-                    <small class="text-muted" id="perfil-email">ZeroEsquerda@email.com</small>
-                </div>
-
-                <hr>
-
-                <ul class="nav nav-pills flex-column mb-3">
-                    <li class="nav-item"><a class="nav-link text-white" href="dashboardnovo.html">Início</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="dispositivos.html">Dispositivos</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="conexoes.html">Conexões</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="assistencia.html">Assistência</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Cenas</a></li>
-                </ul>
-
-                <hr>
-
-                <div class="d-flex align-items-center justify-content-between py-2">
-                    <span class="d-flex align-items-center gap-2 texto-white">
-                        <i class="bi bi-moon-stars fs-5" id="icone-tema"></i> Alternar Tema
-                    </span>
-                    <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" id="switch-tema" role="switch">
-                    </div>
-                </div>
-            </div>
-
-            <div class="pb-3">
-                <button id="btn-logout" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
-                    <i class="bi bi-box-arrow-right"></i> Sair da Conta
-                </button>
-            </div>
+        <div class="offcanvas-body d-flex flex-column gap-3 p-4">
+            <a href="dashboard.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
+                <i class="bi bi-grid-fill fs-5"></i> Início
+            </a>
+            <a href="dispositivos.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
+                <i class="bi bi-display fs-5"></i> Dispositivos
+            </a>
+            <a href="perfis.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
+                <i class="bi bi-broadcast fs-5"></i> Conexões
+            </a>
+            <a href="assistencia.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
+                <i class="bi bi-flag fs-5"></i> Assistência
+            </a>
+            <a href="cenas.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
+                <i class="bi bi-play-circle fs-5"></i> Cenas
+            </a>
         </div>
     </div>
 
-    <main class="container my-5 d-flex flex-column align-items-center justify-content-center">
+    <main class="container flex-grow-1 d-flex align-items-center justify-content-center my-4">
         <div class="lista-conexoes-vertical d-flex flex-column gap-3 w-100" style="max-width: 480px;">
             
-            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" data-id="1" data-nome="ZeroEsquerda" data-email="ZeroEsquerda@email.com" data-src="assets/images/unnamed.zero.jpg" data-banner="assets/images/unnamed.png">
+            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" 
+                 data-username="ZeroEsquerda"
+                 data-apelido="ZeroEsquerda" 
+                 data-permissao="Visualizar e Editar"
+                 data-src="assets/images/unnamed.zero.jpg" 
+                 data-banner="assets/images/unnamed.zero.gif">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/unnamed.zero.jpg" alt="Foto de perfil" class="avatar-linha">
+                    <img src="assets/images/unnamed.zero.jpg" alt="ZeroEsquerda" class="avatar-linha">
                     <span class="fw-bold texto-nome">ZeroEsquerda</span>
                 </div>
                 <span class="text-primary fw-bold small">Admin</span>
             </div>
 
-            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" data-id="2" data-nome="TudoErrado" data-email="tudoerrado@email.com" data-src="assets/images/unnamed (1).jpg" data-banner="assets/images/unnamed.png">
+            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" 
+                 data-username="TudoErrado" 
+                 data-apelido="TudoErrado" 
+                 data-permissao="Visualizar"
+                 data-src="assets/images/unnamed (1).jpg" 
+                 data-banner="assets/images/unnamed.scary.gif">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/unnamed (1).jpg" alt="Foto de perfil" class="avatar-linha">
+                    <img src="assets/images/unnamed (1).jpg" alt="TudoErrado" class="avatar-linha">
                     <span class="fw-bold texto-nome">TudoErrado</span>
                 </div>
                 <span class="text-secondary small">Membro</span>
             </div>
 
-            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" data-id="3" data-nome="PiorAinda" data-email="piorainda@email.com" data-src="assets/images/unnamed 2.jpg" data-banner="assets/images/unnamed.png">
+            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" 
+                 data-username="Th3usツ" 
+                 data-apelido="PiorAinda" 
+                 data-permissao="Visualizar e Editar"
+                 data-src="assets/images/unnamed 2.jpg" 
+                 data-banner="assets/images/unnamed.tobias.gif">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/unnamed 2.jpg" alt="Foto de perfil" class="avatar-linha">
+                    <img src="assets/images/unnamed 2.jpg" alt="PiorAinda" class="avatar-linha">
                     <div>
                         <div class="fw-bold texto-nome">PiorAinda</div>
                         <small class="text-secondary d-block lh-1" style="font-size: 0.75rem;">Th3usツ</small>
@@ -113,24 +297,28 @@
                 <span class="text-secondary small">Membro</span>
             </div>
 
-            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" data-id="4" data-nome="SabeNada" data-email="sabenada@email.com" data-src="assets/images/unnamed.goku.jpg" data-banner="assets/images/unnamed.png">
+            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" 
+                 data-username="deus_supremo &#x2714" 
+                 data-apelido="SabeNada" 
+                 data-permissao="Visualizar"
+                 data-src="assets/images/unnamed.goku.jpg" 
+                 data-banner="assets/images/unnamed.goku2.gif">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/unnamed.goku.jpg" alt="Foto de perfil" class="avatar-linha">
-                    <div>
-                        <div class="fw-bold texto-nome">SabeNada</div>
-                        <small class="text-primary d-block lh-1" style="font-size: 0.75rem;">deus_supremo <i class="bi bi-patch-check-fill"></i></small>
-                    </div>
+                    <img src="assets/images/unnamed.goku.jpg" alt="SemNome" class="avatar-linha">
+                    <span class="fw-bold texto-nome">deus_supremo</span>
                 </div>
                 <span class="text-secondary small">Membro</span>
             </div>
 
-            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" data-id="5" data-nome="FazNada" data-email="faznada@email.com" data-src="assets/images/unnamed.jpg" data-banner="assets/images/unnamed.png">
+            <div class="card-linha perfil-conexao d-flex align-items-center justify-content-between p-2 px-3" 
+                 data-username="moon" 
+                 data-apelido="FazNada" 
+                 data-permissao="Visualizar"
+                 data-src="assets/images/unnamed.jpg" 
+                 data-banner="assets/images/unnamed.vlad.gif">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="assets/images/unnamed.jpg" alt="Foto de perfil" class="avatar-linha">
-                    <div>
-                        <div class="fw-bold texto-nome">FazNada</div>
-                        <small class="text-secondary d-block lh-1" style="font-size: 0.75rem;">moon</small>
-                    </div>
+                    <img src="assets/images/unnamed.jpg" alt="Desconhecido" class="avatar-linha">
+                    <span class="fw-bold texto-nome">moon</span>
                 </div>
                 <span class="text-secondary small">Membro</span>
             </div>
@@ -142,22 +330,78 @@
         </div>
 
         <div class="modal-fundo" id="modal_perfil">
-            <div class="modal-perfil-card">
-                <button class="fechar-modal fechar-perfil" type="button">&times;</button>
-                <div class="topo-perfil-modal">
-                    <img src="assets/images/unnamed.png" alt="Banner" class="banner-perfil" id="modal_banner">
-                    <img src="assets/images/unnamed.zero.jpg" alt="Foto de perfil" class="foto-perfil-modal" id="modal_foto">
+            <div class="modal-gerenciar-card">
+                <div class="cabecalho-modal-gerenciar">
+                    Gerenciar Conexão
                 </div>
-                <div class="info-perfil">
-                    <h2 id="modal_apelido">placeholder</h2>
-                    <p id="modal_email">placeholder@email.com</p>
-                    <button class="btn btn-danger botao-vermelho" type="button">Remover conexão</button>
+                <div class="topo-perfil-modal">
+                    <img src="" alt="Banner" class="banner-perfil" id="modal_banner">
+                    <img src="" alt="Foto" class="foto-perfil-modal" id="modal_foto">
+                </div>
+                <div class="corpo-modal-gerenciar">
+                    <h3 id="modal_username" class="text-center fs-5 fw-bold mb-3">Th3usツ</h3>
+                    
+                    <div class="row g-2 mb-2">
+                        <div class="col-6">
+                            <label class="form-label small fw-bold mb-1">Apelido</label>
+                            <input type="text" id="modal_apelido" class="input-gerenciar" value="PiorAinda">
+                            <button class="btn-visualizar-perfil" href="perfil.usuario.html" button">Visualizar Perfil</button>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small fw-bold mb-1">Pode:</label>
+                            <select id="modal_permissao" class="input-gerenciar">
+                                <option value="Visualizar e Editar">V Visualizar e Editar</option>
+                                <option value="Visualizar">V Visualizar</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <button class="btn-expulsar" type="button">Expulsar</button>
+                        <button class="btn-salvar" type="button">Salvar Alterações</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="perfis.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".perfil-conexao");
+            const modal = document.getElementById("modal_perfil");
+
+            const modalBanner = document.getElementById("modal_banner");
+            const modalFoto = document.getElementById("modal_foto");
+            const modalUsername = document.getElementById("modal_username");
+            const modalApelido = document.getElementById("modal_apelido");
+            const modalPermissao = document.getElementById("modal_permissao");
+
+            cards.forEach(card => {
+                card.addEventListener("click", () => {
+                    const username = card.getAttribute("data-username");
+                    const apelido = card.getAttribute("data-apelido");
+                    const permissao = card.getAttribute("data-permissao");
+                    const foto = card.getAttribute("data-src");
+                    const banner = card.getAttribute("data-banner");
+
+                    modalUsername.innerText = username;
+                    modalApelido.value = apelido;
+                    modalPermissao.value = permissao;
+                    modalFoto.src = foto;
+                    modalBanner.src = banner;
+
+                    modal.classList.add("ativo");
+                });
+            });
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove("ativo");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -15,10 +15,10 @@
         <div class="container-fluid d-flex justify-content-between align-items-center">
             
             <div class="d-flex align-items-center gap-3">
-                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
+                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                     <i class="bi bi-list"></i>
                 </button>
-                <a class="navbar-brand d-flex align-items-center gap-2 m-0 cursor-pointer" href="#" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
+                <a class="navbar-brand d-flex align-items-center gap-2 m-0 cursor-pointer" href="#" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                     <span class="fw-bold fs-4"><span class="text-normal">Smart</span><span class="text-gold">Control</span></span>
                 </a>
             </div>
@@ -31,7 +31,7 @@
                     <span id="texto-botao-tema" class="d-none d-sm-inline">Modo Escuro</span>
                 </button>
 
-                <div class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuPerfil">
+                <div class="cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#menuPerfilUsuario">
                     <img src="assets/images/unnamed 2.jpg" alt="Foto de Perfil" id="foto-perfil-nav" class="avatar-perfil">
                 </div>
             </div>
@@ -39,36 +39,60 @@
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="menuPerfil">
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title texto-adaptavel"><i class="bi bi-person-circle me-2"></i>Perfil do Usuário</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    <div class="offcanvas offcanvas-start border-0" tabindex="-1" id="menuLateral" style="background-color: #ffda44; width: 280px;">
+        <div class="offcanvas-header bg-dark text-white py-3 px-3">
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-dark p-1 border-0" type="button" data-bs-dismiss="offcanvas">
+                    <i class="bi bi-list fs-3"></i>
+                </button>
+                <span class="fw-bold fs-4">Smart<span style="color: #ffda44;">Control</span></span>
+            </div>
         </div>
         
-        <div class="offcanvas-body d-flex flex-column justify-content-between">
-            <div>
-                <div class="text-center my-3">
-                    <img src="assets/images/unnamed 2.jpg" alt="Foto de Perfil" class="avatar-perfil-lg mb-2">
-                    <h6 class="fw-bold mb-0 texto-adaptavel" id="perfil-nome">Carregando...</h6>
-                    <small class="text-muted" id="perfil-email">email@exemplo.com</small>
-                </div>
+        <div class="offcanvas-body p-3 d-flex flex-column gap-3">
+            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;">
+                <i class="bi bi-grid-fill fs-5"></i>
+                <span class="fw-semibold">Início</span>
+            </a>
+            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;">
+                <i class="bi bi-tv fs-5"></i>
+                <span class="fw-semibold">Dispositivos</span>
+            </a>
+            <a href="perfis.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;">
+                <i class="bi bi-broadcast fs-5"></i>
+                <span class="fw-semibold">Conexões</span>
+            </a>
+            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;">
+                <i class="bi bi-flag fs-5"></i>
+                <span class="fw-semibold">Assistência</span>
+            </a>
+            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;">
+                <i class="bi bi-play-triangle fs-5"></i>
+                <span class="fw-semibold">Cenas</span>
+            </a>
+        </div>
+    </div>
 
-                <hr>
-
-                <div class="d-flex align-items-center justify-content-between py-2">
-                    <span class="d-flex align-items-center gap-2 texto-adaptavel">
-                        <i class="bi bi-moon-stars fs-5" id="icone-tema"></i> Alternar Tema
-                    </span>
-                    <div class="form-check form-switch m-0">
-                        <input class="form-check-input" type="checkbox" id="switch-tema" role="switch">
-                    </div>
-                </div>
+    <div class="offcanvas offcanvas-end text-white border-0 shadow" tabindex="-1" id="menuPerfilUsuario" style="background-color: #383838; width: 230px; border-radius: 12px 0 0 12px;">
+        <div class="offcanvas-body p-3">
+            <div class="mb-4">
+                <small class="text-white-50 d-block fs-7" style="line-height: 1.2;">Bem vindo(a),</small>
+                <strong class="d-block text-white" id="perfil-nome">ZeroEsquerda</strong>
             </div>
 
-            <div class="pb-3">
-                <button id="btn-logout" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2">
-                    <i class="bi bi-box-arrow-right"></i> Sair da Conta
-                </button>
+            <div class="d-flex flex-column gap-3">
+                <a href="perfil.usuario.html" class="text-decoration-none text-white d-flex align-items-center gap-3">
+                    <i class="bi bi-person fs-5" style="color: #ffda44;"></i>
+                    <span>Perfil</span>
+                </a>
+                <a href="#" class="text-decoration-none text-white d-flex align-items-center gap-3">
+                    <i class="bi bi-gear fs-5" style="color: #ffda44;"></i>
+                    <span>Configurações</span>
+                </a>
+                <a href="#" class="text-decoration-none text-white d-flex align-items-center gap-3" id="btn-logout">
+                    <i class="bi bi-box-arrow-right fs-5" style="color: #ffda44;"></i>
+                    <span>Log Out</span>
+                </a>
             </div>
         </div>
     </div>

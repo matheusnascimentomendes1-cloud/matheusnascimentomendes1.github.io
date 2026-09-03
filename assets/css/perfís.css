@@ -272,3 +272,48 @@ body.dark-mode .info-perfil p {
     gap: 1rem;
     overflow-x: auto;
 }
+
+.offcanvas-amarelo {
+    background-color: #f7d038 !important;
+    color: #000 !important;
+ }
+
+ .btn-menu-navegacao {
+    background-color: #3b3b3b;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-weight: 500;
+    text-align: left;
+    transition: background-color 0.2s;
+    border: none;
+ }
+
+ .btn-menu-navegacao:hover {
+    background-color: #262626;
+    color: #ffffff;
+ }
+
+ .menu-perfil-card {
+    background-color: #3b3b3b;
+    border-radius: 16px;
+    color: #ffffff;
+    padding: 20px;
+    width: 250px;
+    border: none;
+}
+
+.menu-perfil-card .btn-perfil-opcao {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu-perfil-card .btn-perfil-opcao i {
+    color: #f7d038;
+    font-size: 1.2rem;
+}
