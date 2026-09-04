@@ -4,184 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartControl - Perfil do Usuário</title>
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
     <style>
-        body {
-            background-color: #1a1d21;
-            color: #ffffff;
-            font-family: system-ui, -apple-system, sans-serif;
+        body { 
+            background-color: #383838; 
+            color: #fff; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .bg-dark-header { background-color: #000; }
+        
+        .profile-wrapper {
+            background-color: #383838;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
         }
 
-        .bg-dark-header { 
-            background-color: #000000; 
-        }
-
-        .text-gold { 
-            color: #ffc107; 
-        }
-
-        .offcanvas-amarelo {
-            background-color: #f7d038 !important;
-            color: #000000 !important;
-        }
-
-        .btn-menu-navegacao {
-            background-color: #3b3b3b;
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 12px 16px;
-            font-weight: 500;
-            text-align: left;
-            transition: background-color 0.2s;
-            border: none;
-        }
-
-        .btn-menu-navegacao:hover {
-            background-color: #262626;
-            color: #ffffff;
-        }
-
-        .perfil-container {
+        .profile-card {
+            background-color: #4a4a4a;
             width: 100%;
-            max-width: 480px;
-            background-color: #43464b;
-            min-height: calc(100vh - 56px);
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            max-width: 500px;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .banner-container {
+            height: 160px;
+            background-image: url('assets/images/banner1.jpg');
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
 
-        .banner-perfil {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .wrapper-foto {
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            margin: -55px auto 10px auto;
             position: relative;
-            height: 40px;
         }
 
-        .foto-perfil {
-            width: 90px;
-            height: 90px;
+        .avatar-img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #3b3b3b;
+            border: 3px solid #ffda44;
+        }
+
+        .btn-change-photo {
             position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .card-casa {
-            width: 100%;
-            max-width: 280px;
+            bottom: 2px;
+            right: -2px;
+            background-color: #ffda44;
+            color: #000;
             border-radius: 8px;
-            overflow: hidden;
-            background-color: #ffffff;
-            border: 1px solid #555;
+            width: 34px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
         }
 
-        .img-casa {
-            width: 100%;
-            height: auto;
-            display: block;
+        .input-custom {
+            background-color: #d1d5db;
+            border: none;
+            color: #1f2937;
+            border-radius: 12px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        .btn-voltar {
-            color: #ffffff;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: opacity 0.2s;
+        .input-custom:focus {
+            background-color: #e5e7eb;
+            color: #1f2937;
+            box-shadow: none;
         }
 
-        .btn-voltar:hover {
-            color: #ffc107;
+        .input-custom:disabled {
+            background-color: #d1d5db;
+            color: #1f2937;
+            opacity: 1;
+        }
+
+        .btn-save {
+            background-color: #ffda44;
+            color: #000;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: none;
+            padding: 6px 18px;
+            border-radius: 8px;
+        }
+
+        .form-check-input {
+            width: 2.8em;
+            height: 1.4em;
+            background-color: #6b7280;
+            border-color: #6b7280;
+        }
+
+        .form-check-input:checked {
+            background-color: #ffda44;
+            border-color: #ffda44;
         }
     </style>
 </head>
-<body class="d-flex flex-column align-items-center">
+<body>
 
-    <nav class="navbar navbar-dark bg-dark-header w-100 px-3 shadow-sm">
+    <nav class="navbar navbar-dark bg-dark-header px-4 shadow-sm">
         <div class="container-fluid d-flex justify-content-between align-items-center">
-            
             <div class="d-flex align-items-center gap-3">
-                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuNavegacao">
+                <button class="btn text-white p-0 fs-3 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
                     <i class="bi bi-list"></i>
                 </button>
-                <a class="navbar-brand d-flex align-items-center gap-1 m-0">
-                    <span class="fw-bold fs-4"><span class="text-white">Smart</span><span class="text-gold">Control</span></span>
+                <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="#">
+                    <span class="fw-bold fs-4"><span class="text-white">Smart</span><span style="color: #ffda44;">Control</span></span>
                 </a>
             </div>
-
-            <a href="javascript:history.back()" class="btn-voltar" title="Voltar">
-                <i class="bi bi-arrow-left-circle"></i>
-            </a>
-
+            <a href="dashboard.html" class="btn text-white fs-4 p-0"><i class="bi bi-arrow-left-circle"></i></a>
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-start offcanvas-amarelo" tabindex="-1" id="menuNavegacao" style="width: 280px;">
-        <div class="offcanvas-header bg-dark text-white p-3">
-            <h5 class="offcanvas-title fw-bold fs-4 m-0"><span class="text-white">Smart</span><span class="text-gold">Control</span></h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    <div class="offcanvas offcanvas-start border-0" tabindex="-1" id="menuLateral" style="background-color: #ffda44; width: 280px;">
+        <div class="offcanvas-header bg-dark text-white py-3 px-3">
+            <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-dark p-1 border-0" type="button" data-bs-dismiss="offcanvas">
+                    <i class="bi bi-list fs-3"></i>
+                </button>
+                <span class="fw-bold fs-4">Smart<span style="color: #ffda44;">Control</span></span>
+            </div>
         </div>
-        
-        <div class="offcanvas-body d-flex flex-column gap-3 p-4">
-            <a href="dashboard.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
-                <i class="bi bi-grid-fill fs-5"></i> Início
-            </a>
-            <a href="dispositivos.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
-                <i class="bi bi-display fs-5"></i> Dispositivos
-            </a>
-            <a href="perfis.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
-                <i class="bi bi-broadcast fs-5"></i> Conexões
-            </a>
-            <a href="assistencia.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
-                <i class="bi bi-flag fs-5"></i> Assistência
-            </a>
-            <a href="cenas.html" class="btn-menu-navegacao text-decoration-none d-flex align-items-center gap-3">
-                <i class="bi bi-play-circle fs-5"></i> Cenas
-            </a>
+        <div class="offcanvas-body p-3 d-flex flex-column gap-3">
+            <a href="dashboard.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-grid-fill fs-5"></i><span>Início</span></a>
+            <a href="dispositivos.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-tv fs-5"></i><span>Dispositivos</span></a>
+            <a href="perfis.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-broadcast fs-5"></i><span>Conexões</span></a>
+            <a href="assistencia.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-flag fs-5"></i><span>Assistência</span></a>
+            <a href="cenas.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-play-triangle fs-5"></i><span>Cenas</span></a>
         </div>
     </div>
 
-    <main class="perfil-container flex-grow-1 d-flex flex-column">
-        
-        <img src="assets/images/unnamed.tobias.gif" alt="Banner" class="banner-perfil">
-
-        <div class="wrapper-foto">
-            <img src="assets/images/unnamed 2.jpg" alt="Foto de Perfil" class="foto-perfil">
-        </div>
-
-        <div class="px-4 pb-4 pt-2 d-flex flex-column align-items-start">
+    <div class="profile-wrapper">
+        <div class="profile-card">
+            <div class="banner-container"></div>
+            <img src="assets/images/unnamed.tobias.gif" alt="banner" class="banner-gif">
             
-            <h2 class="w-100 text-center fs-4 fw-bold mb-4">Th3usツ</h2>
-
-            <div class="mb-4">
-                <span class="text-secondary small d-block mb-1">Bio</span>
-                <p class="fw-medium mb-0" style="font-size: 0.95rem; line-height: 1.4;">
-                    Às vezes, para fazer a coisa certa, é preciso ser firme e desistir daquilo que mais queremos. Até dos nossos sonhos.
-                </p>
+            <div class="avatar-container">
+                <img src="assets/images/unnamed 2.jpg" alt="Avatar" class="avatar-img">
+                <button class="btn-change-photo"><i class="bi bi-image-fill"></i></button>
             </div>
 
-            <div class="w-100">
-                <span class="text-secondary small d-block mb-2">Casas</span>
-                
-                <div class="d-flex flex-column align-items-start">
-                    <div class="card-casa shadow-sm mb-1">
-                        <img src="assets/images/casa1.png" alt="Dashboard Casa 1" class="img-casa">
+            <div class="text-center px-4 pb-4">
+                <h4 class="m-0 fw-normal d-flex align-items-center justify-content-center gap-2">
+                   PiorAinda <i class="bi bi-pencil fs-6"></i>
+                </h4>
+
+                <div class="mt-3 mb-4 text-start">
+                    <div class="text-white-50 small mb-1">Bio</div>
+                    <p class="fw-bold m-0" style="font-size: 0.95rem; line-height: 1.3;">Às vezes, para fazer a coisa certa, é preciso ser firme e desistir daquilo que mais queremos. Até dos nossos sonhos.</p>
+                </div>
+
+                <div class="row g-2 text-start small mb-4">
+                    <div class="col-8">
+                        <label class="text-white-50 mb-1">E-mail</label>
+                        <input type="text" class="form-control input-custom" value="mabeus@gmail.com.br">
                     </div>
-                    <span class="small text-white-50">Casa1</span>
+                    <div class="col-4">
+                        <label class="text-white-50 mb-1">ID</label>
+                        <input type="text" class="form-control input-custom" value="#0296742" disabled>
+                    </div>
+                    <div class="col-8 mt-2">
+                        <label class="text-white-50 mb-1">Telefone</label>
+                        <input type="text" class="form-control input-custom text-primary text-decoration-underline" value="+55 (24) 98867-98021">
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 text-start small mb-3">
+                    <div class="form-check form-switch p-0 m-0">
+                        <input class="form-check-input ms-0" type="checkbox" id="switch1">
+                    </div>
+                    <label class="form-check-label text-white-50" for="switch1" style="font-size: 0.8rem;">Permitir que outros usuários visualizem os dados do seu perfil</label>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 text-start small mb-4">
+                    <div class="form-check form-switch p-0 m-0">
+                        <input class="form-check-input ms-0" type="checkbox" id="switch2">
+                    </div>
+                    <label class="form-check-label text-white-50" for="switch2" style="font-size: 0.8rem;">Aceitar convites de projetos automaticamente</label>
+                </div>
+
+                <div class="text-end">
+                    <button class="btn-save">Salvar Alterações</button>
                 </div>
             </div>
-
         </div>
-
-    </main>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

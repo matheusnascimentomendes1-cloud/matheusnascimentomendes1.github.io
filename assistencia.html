@@ -52,8 +52,8 @@
             <a href="dashboard.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-grid-fill fs-5"></i><span>Início</span></a>
             <a href="dispositivos.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-tv fs-5"></i><span>Dispositivos</span></a>
             <a href="perfis.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-broadcast fs-5"></i><span>Conexões</span></a>
-            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-flag fs-5"></i><span>Assistência</span></a>
-            <a href="#" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-play-triangle fs-5"></i><span>Cenas</span></a>
+            <a href="assistencia.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-flag fs-5"></i><span>Assistência</span></a>
+            <a href="cenas.html" class="btn text-start py-2 px-3 rounded-3 d-flex align-items-center gap-3 shadow-sm border-0" style="background-color: #383838; color: #fff;"><i class="bi bi-play-triangle fs-5"></i><span>Cenas</span></a>
         </div>
     </div>
 
@@ -65,8 +65,8 @@
             </div>
             <div class="d-flex flex-column gap-3">
                 <a href="perfil.usuario.html" class="text-decoration-none text-white d-flex align-items-center gap-3"><i class="bi bi-person fs-5" style="color: #ffda44;"></i>Perfil</a>
-                <a href="#" class="text-decoration-none text-white d-flex align-items-center gap-3"><i class="bi bi-gear fs-5" style="color: #ffda44;"></i>Configurações</a>
-                <a href="#" class="text-decoration-none text-white d-flex align-items-center gap-3"><i class="bi bi-box-arrow-right fs-5" style="color: #ffda44;"></i>Log Out</a>
+                <a href="configuracoes.html" class="text-decoration-none text-white d-flex align-items-center gap-3"><i class="bi bi-gear fs-5" style="color: #ffda44;"></i>Configurações</a>
+                <a href="login.html" class="text-decoration-none text-white d-flex align-items-center gap-3"><i class="bi bi-box-arrow-right fs-5" style="color: #ffda44;"></i>Log Out</a>
             </div>
         </div>
     </div>
@@ -74,17 +74,17 @@
     <div class="container my-4">
         <div class="row g-4">
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalSobreNos">
                     <div class="card border-0 bg-transparent">
                         <div class="card-yellow-header">Sobre Nós</div>
-                        <div class="card-img-body d-flex align-items-center justify-content-center" style="background-image: url('assets/images/sobre.jpg');">
+                        <div class="card-img-body d-flex align-items-center justify-content-center" style="background-image: url('assets/images/sobrenos.jpg');">
                             <span class="frame-text">SOBRE NÓS</span>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalFaq">
                     <div class="card border-0 bg-transparent">
                         <div class="card-yellow-header">Dúvidas?</div>
                         <div class="card-img-body" style="background-image: url('assets/images/unnamed\ .boliche.jpg');"></div>
@@ -92,7 +92,7 @@
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalLoja">
                     <div class="card border-0 bg-transparent">
                         <div class="card-yellow-header">Loja Virtual</div>
                         <div class="card-img-body" style="background-image: url('assets/images/images\ .loja.png');"></div>
@@ -100,12 +100,70 @@
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalContato">
                     <div class="card border-0 bg-transparent">
                         <div class="card-yellow-header">Contate-nos</div>
                         <div class="card-img-body" style="background-image: url('assets/images/images.zapzap.jpg');"></div>
                     </div>
                 </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalSobreNos" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning">Sobre Nós</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>O SmartControl é a sua plataforma centralizada para controle de automação e dispositivos inteligentes de forma prática e acessível.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalFaq" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning">Perguntas Frequentes</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Como conectar um novo dispositivo?</strong><br>Acesse o menu Dispositivos e clique em 'Adicionar'.</p>
+                    <p><strong>Como alternar entre perfis?</strong><br>Acesse o menu lateral direito para gerenciar seus dados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalLoja" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning">Loja Virtual</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Visite nossa loja parceira para adquirir novos sensores, lâmpadas inteligentes e interruptores compatíveis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-warning">Contate-nos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Email: suporte@smartcontrol.com</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                </div>
             </div>
         </div>
     </div>
